@@ -14,11 +14,11 @@ Here are some simple steps to follow in order to get ready to start developing. 
 pacman -S mingw-w64-ucrt-x86_64-gcc mingw-w64-ucrt-x86_64-ninja mingw-w64-ucrt-x86_64-cmake mingw-w64-ucrt-x86_64-sdl3
 ```
 
-**3.** Open your file explorer and navigate to *C:\msys64\home\[Your user]* and as a first try put the *hello.c* file along with the *CMakeLists.txt* in the folder, files can be found [here](https://github.com/libsdl-org/SDL/blob/main/docs/INTRO-mingw.md).
+**3.** Create a folder for your project and as a first try put the *hello.c* file along with the *CMakeLists.txt* in the folder, files can be found [here](https://github.com/libsdl-org/SDL/blob/main/docs/INTRO-mingw.md).
 
 **4.** Go to you windows search bar and open *Edit the system environment variables*, go to *Environment variables*, select *path* and click edit and add *C:\msys64\ucrt64\bin* or a diffrent directory if you chose it during installation. 
 
-**5.** Now go to Visual Code and open the previusly mentioned folder *C:\msys64\home\[Your user]*. Open the terminal and write the four commands below seperately in order.
+**5.** Now go to Visual Code and open the previusly mentioned project folder. Open the terminal and write the four commands below seperately in order.
 
 ```
 cmake -S . -B build
