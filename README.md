@@ -38,5 +38,5 @@ Extra steps if you want syntax handling in Visual Studio Code.
 
 **3.** You should now have a .vscode folder in your project with a file named *c_cpp_properties.json*. In that file under includepath and below *workspacefolder* add the code below, remeber to add a comma after workspacefolder.
 ```
-C:/msys64/ucrt64/include"
+"C:/msys64/ucrt64/include"
 ```
