@@ -45,3 +45,8 @@ The following command can be used in UCRT64 to install SDL_IMAGE and SDL_TTF.
 ```
 pacman -S mingw-w64-ucrt-x86_64-sdl3-image mingw-w64-ucrt-x86_64-sdl3-ttf
 ```
+For SDL_NET and SDL_MIXER simply download the source code for those from the [github](https://github.com/libsdl-org). Then extract the files, navigate inside their respective *include* folders and copy paste them into the folder below.
+```
+C:\msys64\ucrt64\include 
+```
+For all libraries remeber to use *#include* when they are used in your files.
