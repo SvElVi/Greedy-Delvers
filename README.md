@@ -1,6 +1,6 @@
 # Greedy Delvers
 
-Welcome to the WIP game project with the codename Dungeons and Greed.
+Welcome to the WIP game project with the codename Greedy Delvers.
 
 ## Setting up the environment 
 
