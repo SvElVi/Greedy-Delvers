@@ -28,7 +28,7 @@ Keep in mind that ttf and mixer also exists and can be used with the command dow
 git clone https://github.com/libsdl-org/SDL_ttf.git vendored/SDL_ttf
 git clone https://github.com/libsdl-org/SDL_mixer.git vendored/SDL_mixer
 ```
-To fix this you will need to download the dependencies for ttf manualy with commands in windows powershell admin mode. Remember to jump to the files with *cd* and execute the *.ps1* file with *./*[file].
+To fix this you will need to download the dependencies for ttf and mixer with commands in windows powershell admin mode. Remember to jump to the files with *cd [path]* and execute the *.ps1* file with *./[path]*.
 
 6. Now use the commands below seperately below in order to compile.
 ```
