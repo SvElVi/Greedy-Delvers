@@ -9,7 +9,16 @@ SDL_AppResult SDL_AppInit(void **appstate, int argc, char *argv[])
 {
     SDL_InitSubSystem(SDL_INIT_VIDEO);
 
-    if (!SDL_CreateWindowAndRenderer("GameWindow", 1920, 1080, SDL_WINDOW_RESIZABLE | SDL_WINDOW_BORDERLESS | SDL_WINDOW_MAXIMIZED, &window, &renderer)) {
+    SDL_DisplayID displayID;
+    SDL_Rect displayRect;
+    
+    if(!(displayID = SDL_GetPrimaryDisplay())) {
+        SDL_Log("Failed getting DisplayID");
+        return SDL_APP_FAILURE;
+    } else if(!SDL_GetDisplayBounds(displayID , &displayRect)) {
+        SDL_Log("Failed getting window bounds");
+        return SDL_APP_FAILURE;
+    } else if (!SDL_CreateWindowAndRenderer("GameWindow", displayRect.w, displayRect.h, SDL_WINDOW_RESIZABLE | SDL_WINDOW_BORDERLESS | SDL_WINDOW_MAXIMIZED, &window, &renderer)) {
         SDL_Log("Couldn't create window and renderer: %s", SDL_GetError());
         return SDL_APP_FAILURE;
     }
@@ -38,6 +47,6 @@ SDL_AppResult SDL_AppIterate(void *appstate)
 
 void SDL_AppQuit(void *appstate, SDL_AppResult result)
 {
-    SDL_Log("Quit sucess");
+    SDL_Log("Quit done");
     SDL_QuitSubSystem(SDL_INIT_VIDEO);
 }
