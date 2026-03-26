@@ -55,6 +55,5 @@ dkms.conf
 *.dwo
 
 #Custom filter
-/.vscode
 /build
 /vendored
