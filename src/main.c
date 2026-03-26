@@ -7,28 +7,37 @@ static SDL_Renderer *renderer = NULL;
 
 SDL_AppResult SDL_AppInit(void **appstate, int argc, char *argv[])
 {
+    SDL_InitSubSystem(SDL_INIT_VIDEO);
+
     if (!SDL_CreateWindowAndRenderer("GameWindow", 1920, 1080, SDL_WINDOW_RESIZABLE | SDL_WINDOW_BORDERLESS | SDL_WINDOW_MAXIMIZED, &window, &renderer)) {
         SDL_Log("Couldn't create window and renderer: %s", SDL_GetError());
         return SDL_APP_FAILURE;
     }
+
     return SDL_APP_CONTINUE;
 }
 
 SDL_AppResult SDL_AppEvent(void *appstate, SDL_Event *event)
 {
-    if (event->type == SDL_EVENT_KEY_DOWN ||
+    const bool* keylist = SDL_GetKeyboardState(0);
+
+    if (keylist[SDL_SCANCODE_ESCAPE] ||
         event->type == SDL_EVENT_QUIT) {
         return SDL_APP_SUCCESS;
     }
+
     return SDL_APP_CONTINUE;
 }
 
 SDL_AppResult SDL_AppIterate(void *appstate)
 {
+
     return SDL_APP_CONTINUE;
 }
 
 
 void SDL_AppQuit(void *appstate, SDL_AppResult result)
 {
+    SDL_Log("Quit sucess");
+    SDL_QuitSubSystem(SDL_INIT_VIDEO);
 }
