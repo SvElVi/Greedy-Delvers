@@ -3,13 +3,7 @@
 #include <SDL3/SDL_main.h>
 #include "inits.h"
 
-SDL_AppResult SDL_AppInit(void **appstate, int argc, char *argv[]) //Runs once at the begining of the program
-{
-    SDL_InitSubSystem(SDL_INIT_VIDEO); //Also initilizes appevents
-
-    AppState* state = (AppState*)SDL_calloc(1, sizeof(AppState)); //Create space on heap
-    if(!state) return SDL_APP_FAILURE;
-
+int initDisplay(AppState* state) { //Temporatly here, waiting for potential fix
     if(!(state->displayID = SDL_GetPrimaryDisplay())) {
         SDL_Log("Failed getting DisplayID: %s", SDL_GetError());
         return SDL_APP_FAILURE;
@@ -20,6 +14,18 @@ SDL_AppResult SDL_AppInit(void **appstate, int argc, char *argv[]) //Runs once a
         SDL_Log("Couldn't create window and renderer: %s", SDL_GetError());
         return SDL_APP_FAILURE;
     }
+
+    return 0;
+}
+
+SDL_AppResult SDL_AppInit(void **appstate, int argc, char *argv[]) //Runs once at the begining of the program
+{
+    SDL_InitSubSystem(SDL_INIT_VIDEO); //Also initilizes appevents
+
+    AppState* state = (AppState*)SDL_calloc(1, sizeof(AppState)); //Create space on heap
+    if(!state) return SDL_APP_FAILURE;
+
+    if(initDisplay(state) == SDL_APP_FAILURE) return SDL_APP_FAILURE;
 
     state->running = true; //Custom flag to mark the program as running
 
