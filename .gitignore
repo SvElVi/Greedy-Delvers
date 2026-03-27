@@ -58,3 +58,4 @@ dkms.conf
 /build
 /vendored
 /.vscode
+*.json
